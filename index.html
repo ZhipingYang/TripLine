@@ -4,23 +4,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<title>🇮🇹🇭🇺🇦🇹🇨🇿 意-奥匈捷 Plan ｜纵向时间轴</title>
-	
-	<!-- 微信分享优化 -->
-	<meta name="description" content="18天意奥匈捷深度游攻略，铁路为主高效路线规划，包含详细景点、交通、住宿信息">
-	<meta name="keywords" content="意大利,奥地利,匈牙利,捷克,欧洲旅行,攻略,时间轴">
-	<meta name="author" content="TripLine">
-	
-	<!-- 微信分享卡片优化 -->
-	<meta property="og:title" content="🇮🇹🇭🇺🇦🇹🇨🇿 意-奥匈捷 18天深度游攻略">
-	<meta property="og:description" content="详细的18天意奥匈捷旅行规划，包含景点推荐、交通指南、实用贴士">
-	<meta property="og:type" content="website">
-	<meta property="og:image" content="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjI2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGEwYzBmIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGUxMjE2Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNiZykiLz48dGV4dCB4PSI1MCUiIHk9IjQwJSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzVhYTlmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+HrfCfh7Ag8J+HrfCfh7kg8J+HpfCfh7kg8J+HqPCfh7o8L3RleHQ+PHRleHQgeD0iNTAlIiB5PSI2MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iI2U4ZWRmNyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MTjlpKnmhI/lpKXljIjniZnmjbfmraXlhYnmUGxhbjwvdGV4dD48L3N2Zz4=">
-	
-	<!-- 移动端优化 -->
-	<meta name="format-detection" content="telephone=no">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<meta name="theme-color" content="#0a0c0f">
 	<style>
 		:root {
 			--italy: #05b348;
@@ -43,10 +26,6 @@
 			color: var(--text);
 			font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 			overflow-x: hidden;
-			/* 微信浏览器优化 */
-			-webkit-text-size-adjust: 100%;
-			-webkit-tap-highlight-color: transparent;
-			touch-action: manipulation;
 		}
 		
 		.header {
@@ -158,9 +137,6 @@
 			cursor: pointer;
 			transition: transform 0.2s ease;
 			padding-left: 80px;
-			/* 微信触摸优化 */
-			-webkit-tap-highlight-color: rgba(90,169,255,0.1);
-			tap-highlight-color: rgba(90,169,255,0.1);
 		}
 		
 		.day-item:hover {
@@ -856,6 +832,70 @@
 • 注意：石板路多穿舒适鞋，城堡群按线路选票，圣维特教堂礼拜时段限制入内`
 			};
 
+			// 🍽️ 各国餐饮建议（摘自 02-Food-Drink）
+			const foodDocs = {
+				italy: `罗马餐饮（动线友好）：
+• 万神殿：Armando al Pantheon（需订）、Ginger；Sant'Eustachio 咖啡
+• 纳沃纳：Vivi Bistrot、Supplizio、Frigidarium 冰淇淋
+• 喷泉/台阶：Piccolo Buco、Ristorante Life、San Crispino
+• 策略：避开景观正对面；午餐45–60分钟；返程预留快线时间`,
+				hungary: `布达佩斯餐饮：
+• D1 渔人堡周边：Ruszwurm 甜点、简餐先吃后拍夜景
+• D2 国会+英雄广场：Menza/Hungarikum（建议预约）；Gerbeaud/New York Café
+• D3 市场：兰哥什/炖牛肉/香肠档（€8–12）；夜航提前用餐
+• 地道：Goulash、Lángos、鹅肝、烟囱卷`,
+				austria: `奥地利餐饮：
+• 维也纳：Figlmüller、Plachutta、Demel/Café Central；Trzesniewski、Spar 熟食
+• 萨尔茨堡：Sacher/Tomaselli 甜点；Stieglkeller 河景位
+• 湖区：Hallstatt 湖畔景观价高；Gosau 营业时间有限；Bad Ischl Zauner
+• 特色：炸猪排、炖牛肉、苹果卷、萨赫蛋糕、莫扎特球`,
+				czech: `捷克餐饮：
+• CK：河湾/城堡下餐馆就近；面包房/可丽饼快补
+• 布拉格：Lokál、Eska（需订）、Café Louvre、Mlejnice
+• 特色：烤鸭/猪肘/肠、古拉什、Knedlíky 面包团、Trdelník
+• 策略：避开老城广场正对面与桥头溢价店，蓝时前后就近用餐`
+			};
+
+			// 🎫 各国购票与比价（摘自 04-Tickets-Deals）
+			const ticketsDocs = {
+				italy: `罗马购票与比价：
+• 梵蒂冈若入内尽早预约；中转建议以外观为主
+• Leonardo Express 32min；到站购票即可
+• 地铁/公交需打票；返程按 Plan.md 19:45 到 T1`,
+				hungary: `布达佩斯购票：
+• 国会内参提前3–6个月预约；携证件
+• BKK 24/72h 票按需；RJ 经 ÖBB 锁座
+• 游船比价含饮品班次；地铁/电车需打票`,
+				austria: `奥地利购票：
+• ÖBB 早鸟 Sparschiene；维↔萨对比 Westbahn
+• 城市 24/48/72h 通票按强度选
+• 湖区缆车/轮渡看末班；城市查票严格需打票`,
+				czech: `捷克购票：
+• CK→布拉格巴士提前锁座；选舒适车次
+• 布拉格→布达佩斯早班优先（6.5–7h）
+• 城市 24/72h 票更划算；上车/进站记得打票`
+			};
+
+			// 🛍️ 各国购物与支付（摘自 06-Shopping-Payment）
+			const shoppingDocs = {
+				italy: `罗马购物与支付：
+• 纪念品：橄榄油/意面/调料、托斯卡纳小酒、皮具小件
+• 支付：刷卡/Pay 为主，少量 EUR 备用；拒绝 DCC，选 EUR
+• 退税：达阈值可退；机场排队需预留`,
+				hungary: `布达佩斯购物与支付：
+• 纪念品：辣椒粉、Tokaji 甜酒、鹅肝、瓷器/刺绣
+• 支付：刷卡/Pay 为主，少量 HUF；拒绝 DCC，选 HUF
+• 市场选正规品牌，注意保质期`,
+				austria: `奥地利购物与支付：
+• 纪念品：莫扎特球、咖啡甜点周边、音乐主题礼品
+• 支付：刷卡/Pay + 少量 EUR；拒绝 DCC，选 EUR
+• 退税：电子退税更便捷，机场预留时间`,
+				czech: `捷克购物与支付：
+• 纪念品：水晶/玻璃、木制玩具、蜂蜜/香皂、小陶器
+• 支付：刷卡/Pay + 少量 CZK；拒绝 DCC，选 CZK
+• 换汇：ATM/正规点，避开“0% 佣金”陷阱`
+			};
+
 			modalBody.innerHTML = `
 				<div class="section">
 					<div class="section-title">📍 国家/地区</div>
@@ -880,6 +920,18 @@
 				<div class="section">
 					<div class="section-title">📋 地区攻略</div>
 					<div class="section-content">${docs[item.country]}</div>
+				</div>
+				<div class="section">
+					<div class="section-title">🍽️ 餐饮建议</div>
+					<div class="section-content">${foodDocs[item.country]}</div>
+				</div>
+				<div class="section">
+					<div class="section-title">🎫 购票与比价</div>
+					<div class="section-content">${ticketsDocs[item.country]}</div>
+				</div>
+				<div class="section">
+					<div class="section-title">🛍️ 购物与支付</div>
+					<div class="section-content">${shoppingDocs[item.country]}</div>
 				</div>
 			`;
 			

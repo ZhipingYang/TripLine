@@ -21,6 +21,27 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="theme-color" content="#0a0c0f">
+	
+	<!-- 微信浏览器检测和优化 -->
+	<script>
+		// 检测微信浏览器
+		function isWechat() {
+			return /micromessenger/i.test(navigator.userAgent);
+		}
+		
+		// 微信环境优化
+		if (isWechat()) {
+			document.documentElement.classList.add('wechat-browser');
+		}
+		
+		// 离线缓存提示
+		window.addEventListener('load', function() {
+			if (isWechat()) {
+				console.log('微信浏览器环境，已优化显示效果');
+			}
+		});
+	</script>
+	
 	<style>
 		:root {
 			--italy: #05b348;
@@ -47,6 +68,15 @@
 			-webkit-text-size-adjust: 100%;
 			-webkit-tap-highlight-color: transparent;
 			touch-action: manipulation;
+		}
+		
+		/* 微信浏览器特殊优化 */
+		.wechat-browser body {
+			padding-bottom: 20px; /* 为微信底部工具栏预留空间 */
+		}
+		
+		.wechat-browser .modal {
+			padding-bottom: 60px; /* 微信环境下弹窗底部留更多空间 */
 		}
 		
 		.header {
@@ -163,8 +193,8 @@
 			tap-highlight-color: rgba(90,169,255,0.1);
 		}
 		
-		.day-item:hover {
-			transform: translateX(8px);
+		.day-item:active {
+			transform: translateX(4px);
 		}
 		
 		.day-dot {
@@ -392,6 +422,24 @@
 			font-size: 12px;
 		}
 		
+		/* 微信分享提示 */
+		.wechat-tip {
+			position: fixed;
+			top: 10px;
+			right: 10px;
+			background: rgba(90,169,255,0.9);
+			color: white;
+			padding: 8px 12px;
+			border-radius: 20px;
+			font-size: 12px;
+			z-index: 300;
+			display: none;
+		}
+		
+		.wechat-browser .wechat-tip {
+			display: block;
+		}
+		
 		@media (max-width: 768px) {
 			.header {
 				padding: 20px 16px;
@@ -468,6 +516,14 @@
 			.modal-body {
 				max-height: calc(90vh - 80px);
 			}
+			
+			.wechat-tip {
+				position: relative;
+				top: auto;
+				right: auto;
+				margin: 10px;
+				text-align: center;
+			}
 		}
 		
 		.timeline-container::-webkit-scrollbar {
@@ -490,6 +546,8 @@
 	</style>
 </head>
 <body>
+	<div class="wechat-tip">💡 点击右上角分享到朋友圈</div>
+	
 	<header class="header">
 		<div class="title">🇮🇹🇭🇺🇦🇹🇨🇿 意-奥匈捷 Plan</div>
 		<div class="subtitle">10/8-10/25 · 18天 · 铁路为主高效路线</div>
@@ -529,6 +587,9 @@
 
 	<footer class="footer">
 		<div>✨ 18天意奥匈捷深度游 · 铁路为主 · 少折返高效路线 ✨</div>
+		<div style="margin-top: 10px; font-size: 11px; opacity: 0.7;">
+			💡 离线可用 · 点击日程查看详情 · 微信分享更方便
+		</div>
 	</footer>
 
 	<script>
@@ -899,6 +960,18 @@
 		});
 
 		renderTimeline();
+		
+		// 微信分享优化
+		if (isWechat()) {
+			// 隐藏微信提示（3秒后）
+			setTimeout(() => {
+				const tip = document.querySelector('.wechat-tip');
+				if (tip) {
+					tip.style.opacity = '0';
+					setTimeout(() => tip.style.display = 'none', 300);
+				}
+			}, 3000);
+		}
 	</script>
 </body>
 </html>
